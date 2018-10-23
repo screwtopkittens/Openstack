@@ -3,7 +3,7 @@ import os
 
 USER = "none"
 API_KEY = "non"
-cs = pyrax.cloudservers
+
 
 
 print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
@@ -21,6 +21,7 @@ if action == "4":
 pyrax.set_setting("identity_type", "rackspace")
 pyrax.set_default_region('IAD')
 pyrax.set_credentials(USER, API_KEY)
+cs = pyrax.cloudservers
 
 ##obtains images list
 ##images = pyrax.images.list()
