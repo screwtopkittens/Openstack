@@ -23,7 +23,7 @@ pyrax.set_default_region('IAD')
 pyrax.set_credentials(USER, API_KEY)
 
 ##obtains images list
-i##mages = pyrax.images.list()
+##images = pyrax.images.list()
 
 imgs = cs.images.list()
 for img in imgs:
