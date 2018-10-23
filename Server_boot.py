@@ -23,7 +23,8 @@ if action == "4":
   imgs = cs.images.list()
   for img in imgs:
     print img.name, "  -- ID:", img.id
- elseif action == "5":
+    
+if action == "5":
   flvs = cs.list_flavors()
   for flv in flvs:
     print "Name:", flv.name
