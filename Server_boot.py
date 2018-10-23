@@ -26,7 +26,7 @@ pyrax.set_credentials(USER, API_KEY)
 images = pyrax.images.list()
 
 ##Obtains Flavour list
-flavor_list = cs.list_flavors()
+flavor_list = pyrax.list_flavors()
 
 
 
