@@ -26,8 +26,8 @@ if action == "1":
   SERVER_NAME = raw_input("Enter the server name: ")
   IMAGE_VAR = raw_input("Enter the image uuid: ")
   FLAVOR_VAR = raw_input("Enter the flavor id: ")
-  image = cs.imgs.get(IMAGE_VAR)
-  flavor = cs.flvs.get(FLAVOR_VAR)
+  image = cs.images.get(IMAGE_VAR)
+  flavor = cs.flavors.get(FLAVOR_VAR)
   
   ##Gets keypair to use with server##
   public_key = open(os.path.expanduser("~/.ssh/id_rsa.pub")).read()
