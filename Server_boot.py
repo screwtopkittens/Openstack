@@ -1,6 +1,9 @@
 import pyrax
 import os
 
+USER = "none"
+API_KEY = "non"
+
 ##Sets API Credentials 
 pyrax.set_setting("identity_type", "rackspace")
 pyrax.set_default_region('IAD')
