@@ -22,21 +22,7 @@ print "5. show avalible flavors"
 action = raw_input("Enter a selection: ")
 
 if action == "1":
-  ##This sets the image and flavour Varibles
-  SERVER_NAME = raw_input("Enter the server name: ")
-  IMAGE_VAR = raw_input("Enter the image uuid: ")
-  FLAVOR_VAR = raw_input("Enter the flavor id: ")
-  KEY_PAIR_NAME = raw_input("Enter the SSH key name: ")
-  image = cs.images.get(IMAGE_VAR)
-  flavor = cs.flavors.get(FLAVOR_VAR)
-  
-  ##Gets keypair to use with server##
-  public_key = open(os.path.expanduser("~/.ssh/id_rsa.pub")).read()
-  keypair = cs.keypairs.create(KEY_PAIR_NAME, public_key)
-
-  ##Builds Server##
-  server = cs.servers.create(SERVER_NAME, image.id, flavor.id, key_name=keypair.name)
-  pyrax.utils.wait_for_build(server, verbose=True)
+  BUILD_CUSTOM_SERVER()
   
 if action == "2":
   print cs.servers.list()
@@ -57,6 +43,25 @@ if action == "5":
     print "  Disk:", flv.disk
     print "  VCPUs:", flv.vcpus
 
+    
+def BUILD_CUSTOM_SERVER():
+  ##This sets the image and flavour Varibles
+  SERVER_NAME = raw_input("Enter the server name: ")
+  IMAGE_VAR = raw_input("Enter the image uuid: ")
+  FLAVOR_VAR = raw_input("Enter the flavor id: ")
+  KEY_PAIR_NAME = raw_input("Enter the SSH key name: ")
+  image = cs.images.get(IMAGE_VAR)
+  flavor = cs.flavors.get(FLAVOR_VAR)
+  return;
+
+  ##Gets keypair to use with server##
+  public_key = open(os.path.expanduser("~/.ssh/id_rsa.pub")).read()
+  keypair = cs.keypairs.create(KEY_PAIR_NAME, public_key)
+
+  ##Builds Server##
+  server = cs.servers.create(SERVER_NAME, image.id, flavor.id, key_name=keypair.name)
+  pyrax.utils.wait_for_build(server, verbose=True)
+  
 ##obtains images list
 ##images = pyrax.images.list()
     
