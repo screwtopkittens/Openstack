@@ -26,12 +26,13 @@ if action == "1":
   SERVER_NAME = raw_input("Enter the server name: ")
   IMAGE_VAR = raw_input("Enter the image uuid: ")
   FLAVOR_VAR = raw_input("Enter the flavor id: ")
+  KEY_PAIR_NAME = raw_input("Enter the SSH key name: ")
   image = cs.images.get(IMAGE_VAR)
   flavor = cs.flavors.get(FLAVOR_VAR)
   
   ##Gets keypair to use with server##
   public_key = open(os.path.expanduser("~/.ssh/id_rsa.pub")).read()
-  keypair = cs.keypairs.create("mykeypair", public_key)
+  keypair = cs.keypairs.create(KEY_PAIR_NAME, public_key)
 
   ##Builds Server##
   server = cs.servers.create(SERVER_NAME, image.id, flavor.id, key_name=keypair.name)
