@@ -4,10 +4,7 @@ import os
 USER = "none"
 API_KEY = "non"
 
-##Sets API Credentials 
-pyrax.set_setting("identity_type", "rackspace")
-pyrax.set_default_region('IAD')
-pyrax.set_credentials(USER, API_KEY)
+
 
 print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
 print "1. Build Standard Server"
@@ -20,6 +17,10 @@ if action == "4":
   USER = raw_input("Enter Your Username: ")
   API_KEY = raw_input("Enter Your API KEY: ")
   
+##Sets API Credentials 
+pyrax.set_setting("identity_type", "rackspace")
+pyrax.set_default_region('IAD')
+pyrax.set_credentials(USER, API_KEY)
 
 ##obtains images list
 images = pyrax.images.list()
