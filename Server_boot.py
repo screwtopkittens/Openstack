@@ -3,9 +3,7 @@ import os
 
 
 ##Sets API Credentials 
-def SET_CREDENTIALS():
-  USER = raw_input("Enter Your Username: ")
-  API_KEY = raw_input("Enter Your API KEY: ")
+def SET_CREDENTIALS(USER, API_KEY):
   pyrax.set_setting("identity_type", "rackspace")
   pyrax.set_default_region('IAD')
   pyrax.set_credentials(USER, API_KEY)
@@ -18,7 +16,9 @@ print "4. Set User name and API key"
 action = raw_input("Enter a selection: ")
 
 if action == 4:
-  SET_CREDENTIALS()
+  USER = raw_input("Enter Your Username: ")
+  API_KEY = raw_input("Enter Your API KEY: ")
+  SET_CREDENTIALS(USER, API_KEY)
 
 
 
