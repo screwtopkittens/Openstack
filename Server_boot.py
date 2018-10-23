@@ -1,8 +1,18 @@
 import pyrax
 import os
 
-USER = raw_input("Enter Your Username: ")
-API_KEY = raw_input("Enter Your API KEY: ")
+USER = "NONE"
+API_KEY = "NONE" 
+print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
+print "1. Build Standard Server"
+print "2. Show built server details"
+print "3. delete server"
+print "4. Set User name and API key"
+action = raw_input("Enter a selection: ")
+
+def SET_VARIBLES():
+  USER = raw_input("Enter Your Username: ")
+  API_KEY = raw_input("Enter Your API KEY: ")
 
 ##Sets API Credentials 
 pyrax.set_setting("identity_type", "rackspace")
@@ -15,11 +25,7 @@ images = pyrax.images.list()
 ##Obtains Flavour list
 flavor_list = cs.list_flavors()
 
-print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
-print "1. Build Standard Server"
-print "2. Show built server details"
-print "3. delete server"
-action = raw_input("Enter a selection: ")
+
 
 
 ##This sets the image and flavour Varibles
