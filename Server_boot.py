@@ -23,10 +23,14 @@ pyrax.set_default_region('IAD')
 pyrax.set_credentials(USER, API_KEY)
 
 ##obtains images list
-images = pyrax.images.list()
+i##mages = pyrax.images.list()
 
+imgs = cs.images.list()
+for img in imgs:
+    print img.name, "  -- ID:", img.id
+    
 ##Obtains Flavour list
-flavor_list = pyrax.list_flavors()
+##flavor_list = cs.list_flavors()
 
 
 
