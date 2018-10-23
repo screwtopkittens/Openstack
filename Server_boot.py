@@ -3,6 +3,11 @@ import os
 
 USER = "NONE"
 API_KEY = "NONE" 
+
+def SET_VARIBLES():
+  USER = raw_input("Enter Your Username: ")
+  API_KEY = raw_input("Enter Your API KEY: ")
+
 print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
 print "1. Build Standard Server"
 print "2. Show built server details"
@@ -10,9 +15,8 @@ print "3. delete server"
 print "4. Set User name and API key"
 action = raw_input("Enter a selection: ")
 
-def SET_VARIBLES():
-  USER = raw_input("Enter Your Username: ")
-  API_KEY = raw_input("Enter Your API KEY: ")
+if action == 4:
+  SET_VARIBLES()
 
 ##Sets API Credentials 
 pyrax.set_setting("identity_type", "rackspace")
