@@ -3,7 +3,7 @@ import os
 
 USER = "none"
 API_KEY = "non"
-
+cs = pyrax.cloudservers
 
 
 print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
