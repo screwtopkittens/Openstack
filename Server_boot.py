@@ -1,34 +1,41 @@
 import pyrax
 import os
 
-USER = "none"
-API_KEY = "non"
+USER = raw_input("Enter Your Username: ")
+API_KEY = raw_input("Enter Your API KEY: ")
 
-
-
-print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
-print "1. Build Standard Server"
-print "2. Show built server details"
-print "3. delete server"
-print "4. Set User name and API key"
-action = raw_input("Enter a selection: ")
-
-if action == "4":
-  USER = raw_input("Enter Your Username: ")
-  API_KEY = raw_input("Enter Your API KEY: ")
-  
 ##Sets API Credentials 
 pyrax.set_setting("identity_type", "rackspace")
 pyrax.set_default_region('IAD')
 pyrax.set_credentials(USER, API_KEY)
 cs = pyrax.cloudservers
 
+##selects task
+print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
+print "1. Build Standard Server"
+print "2. Show built server details"
+print "3. delete server"
+print "4. show avalible images"
+print "5. show avalible flavors"
+action = raw_input("Enter a selection: ")
+
+if action == "4":
+  imgs = cs.images.list()
+  for img in imgs:
+    print img.name, "  -- ID:", img.id
+ elseif action == "5":
+  flvs = cs.list_flavors()
+  for flv in flvs:
+    print "Name:", flv.name
+    print "  ID:", flv.id
+    print "  RAM:", flv.ram
+    print "  Disk:", flv.disk
+    print "  VCPUs:", flv.vcpus
+
 ##obtains images list
 ##images = pyrax.images.list()
 
-imgs = cs.images.list()
-for img in imgs:
-    print img.name, "  -- ID:", img.id
+
     
 ##Obtains Flavour list
 ##flavor_list = cs.list_flavors()
