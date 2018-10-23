@@ -12,6 +12,16 @@ cs = pyrax.cloudservers
 imgs = cs.images.list()
 flvs = cs.list_flavors()
 
+def BUILD_CUSTOM_SERVER():
+  ##This sets the image and flavour Varibles
+  SERVER_NAME = raw_input("Enter the server name: ")
+  IMAGE_VAR = raw_input("Enter the image uuid: ")
+  FLAVOR_VAR = raw_input("Enter the flavor id: ")
+  KEY_PAIR_NAME = raw_input("Enter the SSH key name: ")
+  image = cs.images.get(IMAGE_VAR)
+  flavor = cs.flavors.get(FLAVOR_VAR)
+  return;
+
 ##selects task
 print " Welcome to Dans Amazing cloud server configuration tool please see the menu below and select an Action"
 print "1. Build Standard Server"
@@ -42,17 +52,6 @@ if action == "5":
     print "  RAM:", flv.ram
     print "  Disk:", flv.disk
     print "  VCPUs:", flv.vcpus
-
-    
-def BUILD_CUSTOM_SERVER():
-  ##This sets the image and flavour Varibles
-  SERVER_NAME = raw_input("Enter the server name: ")
-  IMAGE_VAR = raw_input("Enter the image uuid: ")
-  FLAVOR_VAR = raw_input("Enter the flavor id: ")
-  KEY_PAIR_NAME = raw_input("Enter the SSH key name: ")
-  image = cs.images.get(IMAGE_VAR)
-  flavor = cs.flavors.get(FLAVOR_VAR)
-  return;
 
   ##Gets keypair to use with server##
   public_key = open(os.path.expanduser("~/.ssh/id_rsa.pub")).read()
