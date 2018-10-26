@@ -1,3 +1,4 @@
+#!/usr/bin/python
 ####DANs Super script for booting servers Version 1
 ####Version 1.0.0.a
 import pyrax
