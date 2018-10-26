@@ -28,7 +28,10 @@ def BUILD_CUSTOM_SERVER():
   ##Builds Server##
   server = cs.servers.create(SERVER_NAME, image.id, flavor.id, key_name=keypair.name)
   pyrax.utils.wait_for_build(server, verbose=True)
-  print server.addresses
+  print "ID:", server.id
+  print "Status:", server.status
+  print "Admin password:", server.adminPass
+  print "Networks:", server.networks
   MAIN_MENU()
 
 def STANDARD_SERVER_BUILD():
@@ -85,7 +88,10 @@ def STANDARD_SERVER_BUILD():
   ##Builds Server##
   server = cs.servers.create(SERVER_NAME, image.id, flavor.id, key_name=keypair.name)
   pyrax.utils.wait_for_build(server, verbose=True)
-  print server.addresses
+  print "ID:", server.id
+  print "Status:", server.status
+  print "Admin password:", server.adminPass
+  print "Networks:", server.networks
   MAIN_MENU()
   
 def LIST_SERVERS():
